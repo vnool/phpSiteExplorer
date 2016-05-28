@@ -1,0 +1,49 @@
+
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+	function chwrap() {
+		if(document.editfrm.wrap.checked) {
+			document.editfrm.code.wrap="soft";
+		} else {
+			document.editfrm.code.wrap="off";
+		}
+	}
+// -->
+</script>
+<table style="padding:8px;width:100%"> 
+</form> <FORM name="editfrm" method="post" action="index.php" >
+<tr><td>
+<input type="hidden" name="action" value="savefile">
+<TEXTAREA NAME="code" id='editcode' rows="25" cols="120" wrap="off" style='font-size:10pt;width:100%' onkeypress="document.getElementById('savereturn').innerText='';"><? 
+if($action=="edit" || $action=='savefile')
+{
+	$filepath = $cfg[root_path] .$curdir.'/' .$file2edit;
+  $filepath = str_replace("//","/",$filepath);
+ 
+ 
+  echo  htmlentities(file_get_contents($filepath),ENT_COMPAT,'utf-8'); 
+  //   echo  htmlentities(file_get_contents($filepath)); 
+}
+
+?> </TEXTAREA>
+</td></tr></table>
+<TABLE><TR>
+<TD><input type="button" value=" <<Back  " onClick="javascript:location.href='?';">&nbsp;&nbsp;</TD>
+<TD>Wordwrap: (IE only)</TD>
+<TD><INPUT type="checkbox" name="wrap" onClick="javascript:chwrap();" value="1"> &nbsp;&nbsp;</TD> 
+<TD>File name:<INPUT type="text" name="fname" id='editfname' value="<?=$file2edit ?>"></TD>
+
+<TD><input type="submit" value="Save & Exit">&nbsp;</TD> 
+<td><input type=button value='    Save    ' onClick="ac_savefile();"></td>
+<td id='savereturn' style="padding-left:8px;color:#ee0000"></td>
+</TR></FORM>
+	</TABLE><BR>
+
+
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+	if(document.editfrm) document.editfrm.code.focus();
+// -->
+</script>
+ 
+ 

@@ -1,0 +1,46 @@
+ 
+/*--------------------*/
+
+.dialog-overlay {
+	BACKGROUND: #6688aa; FILTER: alpha(opacity:70); opacity: 0.7
+}
+.dialog {
+	 PADDING: 5px; 
+	 BACKGROUND: Gray; FILTER: alpha(opacity:70); 
+	 opacity: 0.9; 
+	 radius: 6;
+	border-radius: 3px; 
+	border:1px solid #96b9de;
+	-webkit-border-radius:8px;
+ -moz-border-radius:8px;
+  width:300px; 
+
+ stem: { height: 12, width: 15 }
+}
+.dialog .bar {
+  radius: 6;
+	PADDING: 6px;  MIN-HEIGHT: 15px; MIN-WIDTH: 180px; max-width:300px; 
+	BACKGROUND: #000;  CURSOR: move; 
+	COLOR: #fff; ;
+	font-size:10pt;
+}
+.dialog .bar .title {
+	FLOAT: left; MARGIN-RIGHT: 10px
+}
+.dialog .bar .close {
+	FLOAT: right; CURSOR: pointer; 
+	TEXT-DECORATION: underline;
+	font-size:10pt;
+	color:#Ffffff
+}
+.dialog .content {
+	PADDING: 10px;  BACKGROUND: #fff; 
+	font-size:10pt; 
+}
+.dialog IFRAME {
+	WIDTH: 100%; HEIGHT: 100%;
+	
+}
+.content IMG {
+	MAX-WIDTH: 700px; OVERFLOW: auto; MAX-HEIGHT: 500px
+}

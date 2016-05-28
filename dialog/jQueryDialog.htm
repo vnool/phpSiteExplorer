@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML><HEAD lang=zh><TITLE>jQuery Dialog弹出层对话框插件演示</TITLE>
+<META http-equiv=Content-Type content=text/html;charset=utf-8>
+<META content="jquery,dialog,plugins,jquery plugins,弹出层,对话框" name=keywords>
+<META content=jQuery插件dialog演示 name=description>
+
+
+<LINK href="dialog.css" type=text/css rel=stylesheet> 
+<SCRIPT src="jquery.min.js" type=text/javascript></SCRIPT>
+<SCRIPT src="dialog.js" type=text/javascript></SCRIPT>
+
+ 
+<!--[if lte IE 8]>
+<SCRIPT src="html5.js" type=text/javascript></SCRIPT>
+<![endif]-->
+ 
+
+<META content="MSHTML 6.00.6000.17063" name=GENERATOR></HEAD>
+<BODY>
+<DIV class=center>
+<DIV class=header>
+<H1>jQuery Dialog弹出层对话框插件演示</H1><SPAN class=left><A 
+href="dialog.js">下载JS文件</A> | <A 
+href="dialog.css">下载CSS文件</A> | <A 
+href="http://www.caixw.com/archives/22">返回相关文章</A> </SPAN><SPAN 
+class=right>最后更新：<TIME>2010-07-26</TIME></SPAN> 
+<DIV class=clear></DIV></DIV><!-- end header -->
+<DIV class=content>
+<DIV class=list>
+<H3>基本操作</H3>
+<H5>默认的</H5><PRE class="prettyprint lang-js" onclick="new Dialog('这是一个默认对话框').show();">new Dialog('这是一个默认对话框').show();
+</PRE>
+<H5>非模态对话框</H5><PRE class="prettyprint lang-js" onclick="new Dialog('非模态对话框，可以打开多个！',{modal:false}).show();">new Dialog('非模态对话框，可以打开多个！',{modal:false}).show();
+</PRE>
+<H5>自动关闭</H5><PRE class="prettyprint lang-js" onclick="new Dialog('3秒后自动关闭',{time:3000}).show();">new Dialog('5秒后自动关闭',{time:5000}).show();
+</PRE>
+<H5>非fixed模式</H5><PRE class="prettyprint lang-js" onclick="new Dialog('对话框不随滚动条移动',{fixed:false}).show();">new Dialog('对话框不随滚动条移动',{fixed:false}).show();
+</PRE>
+<H5>显示指定ID的内容</H5><PRE class="prettyprint lang-js" id=content-type-id onclick="new Dialog({type:'id',value:'content-type-id'}).show();">// 将显示本标签内的内容。
+new Dialog({type:'id',value:'content-type-id'}).show();
+</PRE>
+<H5>加载一张图片</H5><PRE class="prettyprint lang-js" onclick="new Dialog({type:'img',value:'http://www.caixw.com/public/uploads/demo/images/300x125.gif'}).show();">new Dialog({type:'img',value:'http://www.caixw.com/public/uploads/demo/images/300x125.gif'}).show();
+</PRE>
+<H5>加载一URL地址</H5><PRE class="prettyprint lang-js" onclick="new Dialog({type:'url',value:'http://www.caixw.com/public/uploads/demo/jquery/dialog/test.html'}).show();">new Dialog({type:'url',value:'http://www.caixw.com/public/uploads/demo/jquery/dialog/test.html'}).show();
+</PRE>
+<H5>加载一URL到iframe</H5><PRE class="prettyprint lang-js" onclick="new Dialog({type:'iframe',value:'http://www.caixw.com'}).show();">new Dialog({type:'iframe',value:'http://www.caixw.com'}).show();
+</PRE></DIV><!-- end list -->
+<DIV class=list>
+<H3>自定义CSS</H3>
+<H5>自定义背景遮盖层</H5><PRE class="prettyprint lang-css">#dialog1-overlay
+{
+  background:blue;
+  opacity:0.8;
+  filter:alpha(opacity=80);
+}
+</PRE><PRE class="prettyprint lang-js" onclick="new Dialog('自定义背景遮盖层',{id:'dialog1'}).show();">new Dialog('自定义背景遮盖层',{id:'dialog1'}).show();
+</PRE>
+<H5>自定义内容部分背景</H5><PRE class="prettyprint lang-css">#dialog2 .content
+{
+  width:250px;
+  height:80px;
+  background-image:url(http://www.caixw.com/public/uploads/demo/images/300x125.gif);
+}
+</PRE><PRE class="prettyprint lang-js" onclick="new Dialog('自定义内容部分背景',{id:'dialog2'}).show();">new Dialog('自定义内容部分背景',{id:'dialog2'}).show();
+</PRE><!--h3></h3>
+<pre class="prettyprint lang-js">
+</pre--></DIV><!-- end list -->
+<DIV class=list>
+<H3>回调函数</H3>
+<H5>show()函数</H5><PRE class="prettyprint lang-js" onclick="new Dialog('show()回调函数',{afterShow:function(){alert('after show');},beforeShow:function(){alert('before show');return true;}}).show();">new Dialog('show()回调函数'
+    {beforeShow:function(){alert('before show'),return true},afterShow:function(){alert('after show');}})
+    .show();
+</PRE>
+<H5>hide()函数</H5><PRE class="prettyprint lang-js">dlg = new Dialog('hide()回调函数'
+    {beforeHide:function(){alert('before hide'),return true},afterHide:function(){alert('after hide');}})
+    .show();
+dlg.hide();
+</PRE><BUTTON 
+onclick="dlg = new Dialog('hide()回调函数',{afterHide:function(){alert('after hide');},beforeHide:function(){alert('before hide');return true;},modal:false});dlg.show();">显示</BUTTON>&nbsp;&nbsp;&nbsp;<BUTTON 
+onclick=dlg.hide();>隐藏</BUTTON> <BR><BR>
+<H5>close()函数</H5><PRE class="prettyprint lang-js" onclick="new Dialog('close()回调函数',{afterClose:function(){alert('after close');},beforeClose:function(){alert('before close');return true;}}).show();">new Dialog('close()回调函数'
+    {beforeClose:function(){alert('before close'),return true},afterClose:function(){alert('after close');}})
+    .show();
+</PRE></DIV><!-- end list --></DIV><!-- end content -->
+<DIV class=footer>©2010 by <A href="http://www.caixw.com/" rel=me>caixw.com</A> 
+| <A href="http://www.caixw.com/archives/22">相关文章</A> </DIV></DIV><!-- end center -->
+<DIV class=ad-left>
+
+</DIV><!-- end header -->
+<DIV class=ad-right>
+
+</DIV><!-- end footer -->
+
+</BODY></HTML>
